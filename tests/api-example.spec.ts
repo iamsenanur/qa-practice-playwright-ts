@@ -9,7 +9,7 @@ const USERS = 'https://jsonplaceholder.typicode.com/users';
 const CREATE = 'https://jsonplaceholder.typicode.com/users';
 const NOT_FOUND_404 = 'https://httpbin.org/status/404';
 
-test.describe('Public APIs (stable)', () => {
+test.describe('@api Public APIs (stable)', () => {
   test('GET users returns 200 and data list', async ({ request }) => {
     const res = await request.get(USERS);
     expect(res.status()).toBe(200);

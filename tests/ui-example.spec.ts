@@ -1,6 +1,6 @@
 ﻿import { test, expect } from '@playwright/test';
 
-test.describe('SauceDemo - Login & Inventory', () => {
+test.describe('@ui SauceDemo - Login & Inventory', () => {
   test('negative login - wrong password shows error', async ({ page }) => {
     await page.goto('/');
     await page.getByPlaceholder('Username').fill('standard_user');
