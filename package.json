@@ -1,0 +1,15 @@
+﻿{
+  "name": "qa-practice-playwright-ts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "playwright test --reporter=list",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.0"
+  }
+}
