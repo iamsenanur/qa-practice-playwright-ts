@@ -9,19 +9,26 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: Install deps
-        run: npm i
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-      - name: Run tests
-        run: npm test
+
+      - name: Install dependencies
+        run: npm ci || npm i
+
+      # Resmi Playwright GitHub Action: tarayıcıları ve gerekli Linux deps'i kurar
+      - name: Install Playwright Browsers
+        uses: microsoft/playwright-github-action@v1
+
+      - name: Run tests (Chromium only)
+        run: npx playwright test --project=chromium --reporter=list,html
+
       - name: Upload HTML report
         if: always()
         uses: actions/upload-artifact@v4
