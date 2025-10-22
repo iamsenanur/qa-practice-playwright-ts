@@ -8,7 +8,8 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,11 +22,10 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm i
 
-      - name: Install Playwright Browsers
-        uses: microsoft/playwright-github-action@v1
+      - name: Install Playwright browsers + system deps
+        run: npx playwright install --with-deps
 
-      # Sadece @api testlerini çalıştır (Chromium, tek işçi, 1 retry) ve HTML rapor üret
-      - name: Run API tests (Chromium)
+      - name: Run API tests (Chromium only)
         run: npx playwright test --project=chromium --grep "@api" --workers=1 --retries=1 --reporter=list,html
 
       - name: Upload HTML report
