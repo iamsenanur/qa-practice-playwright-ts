@@ -25,3 +25,6 @@ npm install
 npx playwright install --with-deps
 npm test
 npx playwright show-report
+
+[![CI](https://github.com/iamsenanur/qa-practice-playwright-ts/actions/workflows/ci.yml/badge.svg)](https://github.com/iamsenanur/qa-practice-playwright-ts/actions/workflows/ci.yml)
+
